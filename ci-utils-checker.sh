@@ -19,37 +19,22 @@ generate_config() {
     mkdir -p "$(dirname "$CONFIG_FILE")"
     cat << 'EOF' > "$CONFIG_FILE"
 # Formato: Comando | Categoria | Descrizione | Pacchetto Apt (opzionale)
-btop | Monitoraggio | Monitor di sistema grafico avanzato e moderno | btop
-htop | Monitoraggio | Visualizzatore di processi interattivo classico | htop
-glances | Monitoraggio | Monitor di sistema completo con interfaccia web | glances
-procs | Processi | Alternativa moderna e colorata al comando ps | procs
-duf | Disco | Visualizzazione spazio su disco con barre colorate | duf
-ncdu | Disco | Analizzatore interattivo di spazio su disco ncurses | ncdu
-gdu | Disco | Analizzatore di spazio su disco ultra-veloce in Go | gdu
-dust | Disco | Grafico ad albero dell'occupazione del disco in Rust | du-dust
-fastfetch | Info Sistema | Informazioni hardware e sistema stilizzate | fastfetch
 rg | Ricerca | Ripgrep: ricerca ricorsiva velocissima di testo | ripgrep
 fd | Ricerca | Alternativa semplice e intuitiva a find | fd-find
-fzf | Utilità | Interactive Fuzzy Finder per filtrare liste e comandi | fzf
-bat | Utilità | Alternativa a cat con syntax highlighting e git | bat
-eza | Utilità | Alternativa moderna a ls con colori, icone e tree | eza
-zoxide | Navigazione | Navigatore directory intelligente basato su frecency | zoxide
-sd | Testo | Alternativa intuitiva a sed per search-and-replace | sd
-jq | JSON | Processore e formattatore a riga di comando per JSON | jq
-yq | YAML/XML | Processore per file YAML, TOML, XML e JSON | yq
-tldr | Aiuto | Pagine man semplificate e ricche di esempi pratici | tldr
-lazygit | Git | Interfaccia TUI completa per Git | lazygit
-lazydocker | Docker | Interfaccia TUI per gestire container e volumi | lazydocker
-gh | Produttività | GitHub CLI ufficiale per repo, PR e issue | gh
-just | Automazione | Command runner moderno, alternativa pulita a make | just
-hyperfine | Benchmark | Tool di benchmarking statistico da riga di comando | hyperfine
-http | Rete / API | HTTPie: client HTTP/REST intuitivo e colorato | httpie
-curlie | Rete / API | Combina la sintassi di HTTPie con la potenza di curl | curlie
-mtr | Rete | Diagnostica di rete (ping + traceroute dinamico) | mtr
-doggo | Rete / DNS | Client DNS moderno e leggibile (alternativa a dig) | doggo
+fzf | Ricerca | Interactive Fuzzy Finder per filtrare liste e comandi | fzf
+bat | File / Nav | Alternativa a cat con syntax highlighting e git | bat
+eza | File / Nav | Alternativa moderna a ls con colori, icone e tree | eza
+zoxide | File / Nav | Navigatore directory intelligente basato su frecency | zoxide
+jq | Dati | Processore e formattatore a riga di comando per JSON | jq
+btop | Monitoraggio | Monitor di sistema grafico avanzato e moderno | btop
+dust | Disco | Grafico ad albero dell'occupazione del disco in Rust | du-dust
+ncdu | Disco | Analizzatore interattivo di spazio su disco ncurses | ncdu
+lazygit | Git / Dev | Interfaccia TUI completa per Git | lazygit
+gh | Git / Dev | GitHub CLI ufficiale per repo, PR e issue | gh
+delta | Git / Dev | Pager syntax-highlighting per git, diff e grep | git-delta
 tmux | Terminale | Terminal multiplexer per sessioni multiple persistenti | tmux
-zellij | Terminale | Workspace e terminal multiplexer moderno con layout | zellij
-delta | Git / Diff | Pager syntax-highlighting per git, diff e grep | git-delta
+just | Automazione | Command runner moderno, alternativa pulita a make | just
+tldr | Aiuto | Pagine man semplificate e ricche di esempi pratici | tldr
 EOF
 }
 

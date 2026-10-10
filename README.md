@@ -1,47 +1,53 @@
 # ci-utils-checker
 
-Utility da riga di comando per verificare, catalogare e installare i tool CLI moderni (Rust, Go, TUI, monitoraggio, networking) su distribuzioni Debian / Ubuntu e derivate.
+CLI checker rapido per verificare, gestire e installare i tool moderni essenziali da terminale (Rust/Go, TUI, search, monitoring) su Debian / Ubuntu.
+
+Focalizzato sui **16 tool core** irrinunciabili (nessun doppione superfluo).
 
 ## 🚀 Quickstart
 
 ```bash
-# Rendi eseguibile lo script
 chmod +x ci-utils-checker.sh
-
-# Esegui il check completo
 ./ci-utils-checker.sh
 ```
 
-## 📦 Utility monitorate di default
+## 📦 I 16 Tool Essenziali
 
-| Categoria | Comandi |
-|---|---|
-| **Monitoraggio** | `btop`, `htop`, `glances` |
-| **Processi & Benchmark** | `procs`, `hyperfine` |
-| **Disco & File** | `duf`, `ncdu`, `gdu`, `dust` (`du-dust`) |
-| **Ricerca & Navigazione** | `rg` (`ripgrep`), `fd` (`fd-find`), `fzf`, `zoxide` |
-| **Testo, Dati & Diff** | `bat` (`batcat`), `eza`, `sd`, `jq`, `yq`, `delta` (`git-delta`) |
-| **Rete & API** | `http` (`httpie`), `curlie`, `mtr`, `doggo` |
-| **TUI, Git & Container** | `lazygit`, `lazydocker`, `gh`, `tmux`, `zellij` |
-| **Automazione & Aiuto** | `just`, `fastfetch`, `tldr` |
+| Categoria | Comandi | Pacchetto Apt | Descrizione |
+|---|---|---|---|
+| **Ricerca** | `rg` | `ripgrep` | Ricerca ricorsiva fulminea nel codice |
+| | `fd` | `fd-find` | Alternativa ergonomica e veloce a `find` |
+| | `fzf` | `fzf` | Fuzzy finder interattivo |
+| **File / Nav** | `bat` | `bat` (`batcat`) | `cat` con syntax highlight e git |
+| | `eza` | `eza` | `ls` moderno con colori, icone e tree |
+| | `zoxide` | `zoxide` | Navigatore directory intelligente con memoria |
+| **Dati** | `jq` | `jq` | Parser e formattatore JSON CLI |
+| **Monitor / Disco** | `btop` | `btop` | Monitor di sistema TUI moderno |
+| | `dust` | `du-dust` | Grafico ad albero dell'occupazione disco |
+| | `ncdu` | `ncdu` | Analizzatore interattivo di spazio disco |
+| **Git / Dev** | `lazygit` | `lazygit` | TUI completa per Git |
+| | `gh` | `gh` | GitHub CLI ufficiale |
+| | `delta` | `git-delta` | Syntax-highlighting pager per `git diff` |
+| **Terminale / Task** | `tmux` | `tmux` | Terminal multiplexer |
+| | `just` | `just` | Command runner moderno (alternativa a `make`) |
+| | `tldr` | `tldr` | Cheat-sheet e pagine man semplificate con esempi |
 
 ## 🛠️ Comandi
 
 ```bash
-./ci-utils-checker.sh               # Mostra tutte le utility (installate e mancanti)
-./ci-utils-checker.sh installed     # Mostra solo quelle già installate
-./ci-utils-checker.sh missing       # Mostra solo quelle mancanti con suggerimento apt
+./ci-utils-checker.sh               # Mostra stato di tutte le utility
+./ci-utils-checker.sh installed     # Mostra solo quelle installate
+./ci-utils-checker.sh missing       # Mostra solo quelle mancanti
 ./ci-utils-checker.sh search <term> # Cerca per nome, categoria o descrizione
 ./ci-utils-checker.sh install       # Installa in batch i pacchetti apt mancanti
 ./ci-utils-checker.sh add           # Aggiunge una nuova utility personalizzata
 ./ci-utils-checker.sh edit          # Modifica la lista ~/.config/my_utilities.list
-./ci-utils-checker.sh reset         # Ripristina la lista predefinita
+./ci-utils-checker.sh reset         # Ripristina la lista predefinita (16 tool)
 ```
 
 ## ⚙️ Configurazione
 
-La configurazione viene salvata in `${XDG_CONFIG_HOME:-$HOME/.config}/my_utilities.list` con sintassi pipe-separated:
-
+Salvata in `${XDG_CONFIG_HOME:-$HOME/.config}/my_utilities.list`:
 ```text
 Comando | Categoria | Descrizione | Pacchetto Apt (opzionale)
 ```
